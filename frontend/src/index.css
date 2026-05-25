@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Premium space dark palette (H S% L%) */
+    --brand-dark: 260 50% 8%; /* Very dark deep violet (#0a051b) */
+    --brand-pale: 260 40% 12%; /* Elegant deep purple (#130c27) */
+    --brand-light: 260 30% 18%; /* Muted slate purple (#20173d) */
+    --brand-blue: 260 85% 65%; /* Bright neon violet (#8b5cf6) */
+    --brand-cyan: 320 85% 65%; /* Glowing magenta/pink (#ec4899) */
+
+    /* theme tokens (used by components / tailwind config) */
+    --background: 260 50% 8%; 
+    --foreground: 220 15% 95%; /* Clean off-white text */
+    --on-dark: 0 0% 100%; /* Pure white text */
+    
+    --card: 260 40% 11%; /* Semitransparent/dark cards (#120924) */
+    --card-foreground: 220 15% 95%;
+    
+    --primary: var(--brand-blue);
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: var(--brand-cyan);
+    --secondary-foreground: 0 0% 100%;
+    
+    --muted: 260 25% 18%;
+    --muted-foreground: 220 10% 70%;
+    
+    --accent: var(--brand-light);
+    --accent-foreground: 220 15% 95%;
+    
+    --border: 260 30% 22%; /* Deep borders (#2e244d) */
+    --input: 260 35% 12%; /* Input background (#150d26) */
+    --ring: 260 85% 65%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply min-h-screen text-[hsl(var(--foreground))] bg-gradient-to-br from-[#080216] via-[#12072b] to-[#05010f] selection:bg-brand-blue/30 selection:text-white;
+  }
+}
+
+/* Ensure common text utilities use high readability light text on dark backgrounds */
+.text-gray-600,
+.text-gray-700,
+.text-gray-500,
+.text-gray-900,
+.text-gray-400 {
+  color: hsl(var(--foreground)) !important;
+  opacity: 0.85;
+}
+
+.hover\:text-gray-900:hover,
+.hover\:text-gray-700:hover {
+  color: hsl(var(--on-dark)) !important;
+}
+
+/* Base style for form containers and cards */
+.bg-brand-peach {
+  background-color: rgba(20, 14, 44, 0.6) !important;
+  backdrop-filter: blur(12px);
+  border-color: rgba(139, 92, 246, 0.2) !important;
+}
+
+.border-brand-sky {
+  border-color: rgba(139, 92, 246, 0.25) !important;
+}
+
